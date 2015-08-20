@@ -1,4 +1,4 @@
-package net.lermex.error;
+package net.lermex.inaction.error;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.context.request.WebRequest;

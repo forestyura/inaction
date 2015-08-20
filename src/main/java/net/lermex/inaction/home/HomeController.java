@@ -1,4 +1,4 @@
-package net.lermex.home;
+package net.lermex.inaction.home;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
