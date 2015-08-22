@@ -1,0 +1,50 @@
+$COLOR_PANEL: #fcfff5;
+
+$BORDER_RADIUS: 2px;
+
+.news-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.news-item {
+  background-color: $COLOR_PANEL;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+
+  border-radius: $BORDER_RADIUS;
+  padding: 12px;
+
+  margin: 8px;
+}
+
+.news-item:hover {
+  box-shadow: 0 0 40px rgba(0,0,0,0.6);
+}
+
+.news-item__title {
+  font-size: larger;
+}
+
+.news-item__image {
+  border: 1px solid #d1dbbd;
+}
+
+.news-item .massive-checkbox {
+  display: none;
+}
+
+.news-item__action-button {
+  margin-top: 50%;
+  display: block;
+}
+
+.news-list--select-mode {
+
+  .news-item .massive-checkbox {
+    display: table-cell;
+  }
+
+  .news-item__action-button {
+    display: none;
+  }
+}

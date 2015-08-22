@@ -1,0 +1,60 @@
+$pad: 10px;
+
+.row {
+  margin: 0 0 $pad 0;
+}
+
+.row:after {
+  content: " ";
+  clear: both;
+  display: table;
+}
+
+[class*='col-'] {
+  float: left;
+  padding-right: $pad;
+
+  .grid &:last-of-type {
+    padding-right: 0;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.col-1 {
+  width: 8.333333333%;
+}
+
+.col-2 {
+  width: 16.66666666%;
+}
+
+.col-3 {
+  width: 25%;
+}
+
+.col-4 {
+  width: 33.33333333%;
+}
+
+.col-5 {
+  width: 41.66666666%;
+}
+
+.col-6 {
+  width: 50%;
+}
+
+.col-7 {
+  width: 58.333333333%;
+}
+
+.col-8 {
+  width: 66.666666666%;
+}
+
+.col-9 {
+  width: 75%;
+}

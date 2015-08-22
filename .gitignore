@@ -2,6 +2,7 @@
 .project
 target/
 bin/
+node_modules/
 .settings/
 .idea/
 *.iml

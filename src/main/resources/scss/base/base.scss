@@ -1,0 +1,28 @@
+$COLOR_BACKGROUND: #3E606F;
+$COLOR_FOREGROUND: #193441;
+
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  background: $COLOR_BACKGROUND;
+  color: $COLOR_FOREGROUND;
+
+  -webkit-font-smoothing: antialiased;
+  font-family: -apple-system, '.SFNSDisplay-Regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+  color: $COLOR_FOREGROUND;
+
+  text-transform: uppercase;
+  font-size: small;
+}
+
