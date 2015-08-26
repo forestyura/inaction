@@ -1,0 +1,9 @@
+$BORDER_RADIUS: 2px;
+
+.panel {
+  background-color: $COLOR_PANEL;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+
+  border-radius: $BORDER_RADIUS;
+  padding: 12px;
+}

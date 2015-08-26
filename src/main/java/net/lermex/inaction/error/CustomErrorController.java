@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.google.common.base.Throwables;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 class CustomErrorController {
@@ -19,7 +20,7 @@ class CustomErrorController {
 	 * Display an error page, as defined in web.xml <code>custom-error</code> element.
 	 */
 	@RequestMapping("generalError")	
-	public String generalError(HttpServletRequest request, HttpServletResponse response, Model model) {
+	public ModelAndView generalError(HttpServletRequest request, HttpServletResponse response) {
 		// retrieve some useful information from the request
 		Integer statusCode = (Integer) request.getAttribute("javax.servlet.error.status_code");
 		Throwable throwable = (Throwable) request.getAttribute("javax.servlet.error.exception");
@@ -30,13 +31,12 @@ class CustomErrorController {
 		if (requestUri == null) {
 			requestUri = "Unknown";
 		}
-		
-		String message = MessageFormat.format("{0} returned for {1} with message {2}", 
-			statusCode, requestUri, exceptionMessage
-		); 
-		
-		model.addAttribute("errorMessage", message);
-        return "error/general";
+
+		final ModelAndView mav = new ModelAndView("error/general");
+		mav.addObject("statusCode", statusCode);
+        mav.addObject("requestUri", requestUri);
+        mav.addObject("exceptionMessage", exceptionMessage);
+        return mav;
 	}
 
 	private String getExceptionMessage(Throwable throwable, Integer statusCode) {

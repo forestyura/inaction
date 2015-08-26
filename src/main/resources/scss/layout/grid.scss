@@ -1,4 +1,4 @@
-$pad: 10px;
+$pad: 8px;
 
 .row {
   margin: 0 0 $pad 0;
@@ -14,13 +14,21 @@ $pad: 10px;
   float: left;
   padding-right: $pad;
 
-  .grid &:last-of-type {
+  .row &:last-of-type {
     padding-right: 0;
   }
 
   img {
     max-width: 100%;
   }
+}
+
+.row-pad {
+  padding: 20px 0 20px 20px;
+}
+
+.row-pad > [class*='col-']:last-of-type {
+  padding-right: 20px;
 }
 
 .col-1 {
@@ -57,4 +65,20 @@ $pad: 10px;
 
 .col-9 {
   width: 75%;
+}
+
+.offset-1 {
+  margin-left: 8.333333333%;
+}
+
+.offset-2 {
+  margin-left: 16.66666666%;
+}
+
+.offset-3 {
+  margin-left: 25%;
+}
+
+.offset-4 {
+  margin-left: 33.33333333%;
 }

@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="www.thymeleaf.org">
 <head>
-    <title>Error page</title>
+    <title>Error</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap.min.css}"/>
-    <link href="../../../resources/css/core.css" rel="stylesheet" media="screen" th:href="@{/resources/css/core.css}"/>
+    <link href="../../../resources/css/all.css" rel="stylesheet" media="screen" th:href="@{/resources/css/all.css}"/>
 </head>
 <body>
 <div class="container">
-    <div th:replace="fragments/alert :: alert (type='danger', message=${errorMessage})">Error: Error</div>
-    <div th:include="fragments/footer :: footer">&copy; 2013 The Static Templates</div>
+    <div class="row">
+        <div class="panel col-4 offset-4">
+            <span class="error-message__code accent" th:text="${statusCode}">404</span> returned for
+            <span class="error-message__url" th:text="${requestUri}">>exampleUri</span> with message
+            <span class="error-message__message" th:text="${exceptionMessage}">>exampleMessage</span>
+        </div>
+    </div>
+    <div th:replace="fragments/footer :: footer">&copy; 2015 InAction Developers</div>
 </div>
 </body>
 </html>
