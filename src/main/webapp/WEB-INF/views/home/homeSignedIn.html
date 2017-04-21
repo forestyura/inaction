@@ -3,12 +3,16 @@
 <head>
     <title th:text="#{view.index.title}">Welcome!</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap.min.css}"/>
-    <link href="../../../resources/css/core.css" rel="stylesheet" media="screen" th:href="@{/resources/css/core.css}" />
+    <!--<link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap.min.css}"/>-->
+    <!--<link href="../../../resources/css/core.css" rel="stylesheet" media="screen" th:href="@{/resources/css/core.css}" />-->
     <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="../../../resources/js/bootstrap.min.js" th:src="@{/resources/js/bootstrap.min.js}"></script>
+    <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css"/>
+    <link href="../../../resources/css/all.css" rel="stylesheet" media="screen" th:href="@{/resources/css/all.css}"/>
+    <!--<script src="../../../resources/js/bootstrap.min.js" th:src="@{/resources/js/bootstrap.min.js}"></script>-->
 </head>
 <body>
+
 <div th:replace="fragments/header :: header">&nbsp;</div>
 <div class="container">
     <!-- /* Handle the flash message */-->
@@ -16,9 +20,109 @@
         <!-- /* The message code is returned from the @Controller */ -->
         <div th:replace="fragments/alert :: alert (type=${#strings.toLowerCase(message.type)}, message=#{${message.message}(${#authentication.name})})">&nbsp;</div>
     </th:block>
-    <p>
-        Welcome to the Spring MVC Quickstart application!
-    </p>
+    <div class="row" id="row-id">
+        <div class="col-4">
+            <div class="panel">
+                <h1>Peter Sportsy</h1>
+                <div class="user-description" rel="stylesheet"
+                     media="screen"/>
+                <p>
+                    Welcome to the Spring MVC Quickstart application!
+                    Get started quickly by signing up.
+                </p>
+
+                <a class="site-header__link" href="#" th:href="@{/}">Home</a>
+                <a class="site-header__link" href="/archive">Archive</a>
+                <!--<a class="site-header__link" href="/logout" th:href="@{#}" onclick="$('#form').submit();">Logout</a>-->
+                <a class="site-header__link" href="/logout" th:href="@{/logout}">Logout</a>
+            </div>
+            <div class="statistic-div">
+                <div class="panel">
+                    <h2>This week:</h2>
+
+                    <p>
+                        Statistics and info
+                    </p>
+
+                    <div class="ct-chart ct-perfect-fourth">
+                        <span th:type="hidden" id="statistics-array" name="statistics-array"
+                              th:value="${statistics.statisticsList}"/>
+                    </div>
+                    <a id="href-update-statistics" href="/updatestatistics" th:href="@{/updatestatistics}">
+                        <img src="../../../resources/images/ic_autorenew_black_48dp.png" th:src="@{/resources/images/ic_autorenew_black_48dp.png}"/>
+                        </a>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-8">
+            <div class="row">
+                <div class="col-3">
+                    <div class="panel">
+
+                        <img class="buddies-img" src="../../../resources/images/user3.png"
+                             th:src="@{/resources/images/user3.png}"
+                             rel="stylesheet"
+                             media="screen"/>
+                        <a href="#">Buddies</a>
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <div class="panel">
+
+                        <img class="chat-img" src="../../../resources/images/Chat.png"
+                             th:src="@{/resources/images/Chat.png}"
+                             rel="stylesheet"
+                             media="screen"/>
+                        <a class="group-href" href="#">Groups</a>
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <div class="panel">
+
+                        <img class="events-img" src="../../../resources/images/Calendar2.png"
+                             th:src="@{/resources/images/Calendar2.png}"
+                             rel="stylesheet"
+                             media="screen"/>
+                        <a class="events-href" href="#">Events</a>
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <div class="panel">
+
+                        <img class="challenges-img" src="../../../resources/images/award.png"
+                             th:src="@{/resources/images/award.png}"
+                             rel="stylesheet"
+                             media="screen"/>
+                        <a class="challenges-href" href="#">Challenges</a>
+                    </div>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="news-item">
+                    <div>
+                        <span class="news-item__name">Jane Hithard</span>
+                        <span class="news-item__date">21 Aug at 3:27 pm</span>
+                    </div>
+                    <span>Anyone up for a hike this weekend?</span>
+                </div>
+                <div class="news-item">
+                    <div>
+                        <span class="news-item__name">Simon Swiftleg</span>
+                        <span class="news-item__date">20 Aug at 9:11 am</span>
+                    </div>
+                    <span>Just finished my first 5k. Best feeling ever!</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div th:replace="fragments/footer :: footer">&copy; 2015 InAction Developers</div>
+    <script src="../../../resources/js/main.js?q=123"></script>
 </div>
 </body>
 </html>
